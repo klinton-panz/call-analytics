@@ -128,6 +128,7 @@ function ApiKeySettings({ user, onBack }) {
           <div className="usage-section">
             <h3>How to Use Your API Key</h3>
             <p>Use this API key to send call data to your dashboard via Postman or other tools:</p>
+            {/* Updated to use Railway backend */}
             
             <div className="code-example">{`POST https://call-analytics-10-production.up.railway.app/api/calls
 Headers:
