@@ -7,7 +7,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "http://localhost:8080",
+      "value": "https://call-analytics-10-production.up.railway.app",
       "type": "string"
     },
     {

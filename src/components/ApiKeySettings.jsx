@@ -129,7 +129,7 @@ function ApiKeySettings({ user, onBack }) {
             <h3>How to Use Your API Key</h3>
             <p>Use this API key to send call data to your dashboard via Postman or other tools:</p>
             
-            <div className="code-example">{`POST http://localhost:8080/api/calls
+            <div className="code-example">{`POST https://call-analytics-10-production.up.railway.app/api/calls
 Headers:
   Content-Type: application/json
   x-api-key: ${userApiKey?.api_key || 'your_api_key_here'}
