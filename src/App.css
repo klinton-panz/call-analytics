@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Dark theme (default) */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: #0f1220;
+  color: #e7ecff;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: block;
+  place-items: unset;
+  min-width: unset;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme */
+body.light {
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: inherit;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #2a3354;
+  border-top: 4px solid #6c7cff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+body.light .loading-spinner {
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Button styles */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Input styles */
+input, select {
+  background: #151a2e;
+  color: #e7ecff;
+  border: 1px solid #2a3354;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  transition: border-color 0.2s ease, background-color 0.3s ease;
+}
+
+body.light input, body.light select {
+  background: white;
+  color: #1e293b;
+  border: 1px solid #d1d5db;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #6c7cff;
+  box-shadow: 0 0 0 3px rgba(108, 124, 255, 0.1);
+}
+
+body.light input:focus, body.light select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+input::placeholder {
+  color: #9aa4bf;
+}
+
+body.light input::placeholder {
+  color: #9ca3af;
+}
+
+/* Link styles */
+a {
+  color: #6c7cff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+body.light a {
+  color: #3b82f6;
+}
+
+a:hover {
+  color: #8b95ff;
+}
+
+body.light a:hover {
+  color: #2563eb;
+}

@@ -1,0 +1,154 @@
+{
+  "info": {
+    "name": "Call Analytics API",
+    "description": "API collection for testing Call Analytics endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "test-key-123",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "Get Calls",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/calls?limit=100",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "calls"],
+          "query": [
+            {
+              "key": "limit",
+              "value": "100"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Call",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"contactName\": \"John Doe\",\n  \"phone\": \"(555) 123-4567\",\n  \"direction\": \"inbound\",\n  \"status\": \"Qualified\",\n  \"summary\": \"Called about pool installation\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/calls",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "calls"]
+        }
+      }
+    },
+    {
+      "name": "Create Call (Alternative Header)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-secret",
+            "value": "{{apiKey}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"contactName\": \"Jane Smith\",\n  \"phone\": \"(555) 987-6543\",\n  \"direction\": \"outbound\",\n  \"status\": \"Completed\",\n  \"summary\": \"Follow-up call about heating system\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/calls",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "calls"]
+        }
+      }
+    },
+    {
+      "name": "Create Call (Missing API Key)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"contactName\": \"Test User\",\n  \"phone\": \"(555) 111-2222\",\n  \"direction\": \"inbound\",\n  \"status\": \"Not Qualified\",\n  \"summary\": \"Test call without API key\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/calls",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "calls"]
+        }
+      }
+    },
+    {
+      "name": "Create Call (Invalid API Key)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "invalid-key-123",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"contactName\": \"Test User\",\n  \"phone\": \"(555) 333-4444\",\n  \"direction\": \"inbound\",\n  \"status\": \"Missed\",\n  \"summary\": \"Test call with invalid API key\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/calls",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "calls"]
+        }
+      }
+    }
+  ]
+} 
