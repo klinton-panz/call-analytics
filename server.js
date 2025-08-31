@@ -20,7 +20,6 @@ app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors());
 app.use(compression());
 app.use(express.json({ limit: '10mb' }));
-app.use(express.static(path.join(__dirname, 'dist')));
 
 // Utility function to normalize timestamps
 function normalizeTimestamp(raw) {
@@ -149,12 +148,16 @@ app.post('/api/calls', async (req, res) => {
   }
 });
 
+// Serve static files (after API routes)
+app.use(express.static(path.join(__dirname, 'dist')));
+
 // Handle React Router (serve index.html for all non-API routes)
 app.get('*', (req, res) => {
-  // Skip API routes
+  // If this is an API route that wasn't matched, return 404
   if (req.path.startsWith('/api/')) {
     return res.status(404).json({ error: 'API endpoint not found' });
   }
+  // Otherwise serve the React app
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
