@@ -144,6 +144,7 @@
   border: 2px solid #e2e8f0;
   border-radius: 8px;
   background: white;
+  color: #1a202c;
   transition: all 0.2s ease;
   outline: none;
 }
