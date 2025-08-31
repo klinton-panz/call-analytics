@@ -166,4 +166,5 @@ app.listen(PORT, () => {
   console.log(`🚀 Call Analytics server running on port ${PORT}`);
   console.log(`📊 Dashboard: http://localhost:${PORT}`);
   console.log(`🔗 API Health: http://localhost:${PORT}/api/health`);
+  console.log(`🔧 API endpoints configured for Railway deployment`);
 });
