@@ -11,7 +11,8 @@
       "test-auth": "node test-auth.js",
       "dev:frontend": "vite",
       "build": "vite build",
-      "preview": "vite preview"
+      "preview": "vite preview",
+      "railway:build": "npm run build"
     },
     "keywords": ["calls", "analytics", "dashboard", "tracking"],
     "author": "",
